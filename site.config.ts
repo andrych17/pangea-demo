@@ -47,5 +47,5 @@ export const SITE: SiteConfig = {
   locale: "en-AU",
   timeZone: "UTC",
   preloader: { enabled: true, minMs: 2000, columns: 5, kicker: "Welcome home" },
-  footerNote: "Pitch demo for Pangea Connects Pty Ltd. Copy from the brief; translations are drafts; photos from pangeaconnects.com; feature text and plan inclusions are placeholders.",
+  footerNote: "Pitch demo for Pangea Connects Pty Ltd. Copy from the brief; translations are drafts; photos from pangeaconnects.com; feature text, guide details and plan inclusions are placeholders to verify; service providers are made up.",
 };

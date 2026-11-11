@@ -15,9 +15,11 @@ export const education: Preset = {
     description: "Find your people. Guides, housing, jobs, services and events for migrants settling in Australia, in 13 languages.",
   },
   nav: [
-    { label: "Settle in AU", href: "/#process" },
+    { label: "Settle in AU", href: "/settle" },
+    { label: "Services", href: "/services" },
     { label: "Features", href: "/#work" },
     { label: "Membership", href: "/membership" },
+    { label: "Contact", href: "/contact" },
   ],
   cta: { label: "Get the app", href: PLAY },
   home: {

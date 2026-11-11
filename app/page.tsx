@@ -4,6 +4,8 @@ import { Languages } from "@/components/sections/Languages";
 import { Statement } from "@/components/sections/Statement";
 import { Features } from "@/components/sections/Features";
 import { Showcase } from "@/components/sections/Showcase";
+import { Stats } from "@/components/sections/Stats";
+import { FeatureExplorer } from "@/components/sections/FeatureExplorer";
 import { Video } from "@/components/sections/Video";
 import { Steps } from "@/components/sections/Steps";
 import { Founder } from "@/components/sections/Founder";
@@ -17,7 +19,11 @@ export default function Home() {
       <Hero hero={home.hero} />
       <Languages />
       <Statement marquee={home.marquee} statement={home.statement} />
-      <Showcase showcase={home.showcase} />
+      <Stats />
+      <div id="work" className="scroll-mt-20">
+        <Showcase showcase={home.showcase} />
+        <FeatureExplorer />
+      </div>
       <Video id="kIJu86Ag8-s" title="See Pangea in a minute." body="A quick tour of the app: guides, housing, jobs and the people you will meet. Tap to play, nothing loads until you do." />
       <Features features={home.features} />
       <Steps steps={home.steps} />

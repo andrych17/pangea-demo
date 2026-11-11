@@ -1,6 +1,6 @@
 import type { HomeContent } from "@/lib/content";
 import { Icon } from "../Icon";
-import { Eyebrow, Reveal, StickyStack } from "../motion";
+import { ArrowLink, Eyebrow, Reveal, StickyStack } from "../motion";
 
 // Card colours cycle through the theme so the stack reads as separate sheets.
 const TONES = ["bg-deep text-canvas", "bg-accent text-canvas", "bg-accent-2 text-ink", "bg-accent-3 text-canvas", "bg-ink text-canvas"];
@@ -24,6 +24,9 @@ export function Steps({ steps }: { steps: HomeContent["steps"] }) {
                 </li>
               ))}
             </ol>
+            <div className="mt-10">
+              <ArrowLink href="/settle">Read the guides</ArrowLink>
+            </div>
           </Reveal>
         </div>
         <StickyStack className="lg:col-span-7">

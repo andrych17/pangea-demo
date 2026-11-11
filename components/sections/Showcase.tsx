@@ -2,10 +2,10 @@ import type { HomeContent } from "@/lib/content";
 import { Media } from "../Media";
 import { Eyebrow, HorizontalRail } from "../motion";
 
-/** Pinned sideways rail on desktop, swipe row on mobile. Anchor: /#work. */
+/** Pinned sideways rail on desktop, swipe row on mobile. Anchor /#work is set by the page that wraps it. */
 export function Showcase({ showcase }: { showcase: HomeContent["showcase"] }) {
   return (
-    <div id="work" className="scroll-mt-20 bg-canvas-2/60">
+    <div className="bg-canvas-2/60">
       <HorizontalRail
         label={showcase.title}
         intro={
