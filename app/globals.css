@@ -1,0 +1,171 @@
+@import "tailwindcss";
+
+/*
+ * Palette and type. Rename nothing: components use these token names
+ * (bg-canvas, text-ink, bg-card, bg-deep, text-accent, bg-accent-2, ...).
+ * The @theme values are the "ember" palette. Other palettes are the html[data-theme] blocks below;
+ * the active one comes from the sector preset (or SITE.theme). For a client brand, edit a block's hex values.
+ */
+@theme {
+  --color-canvas: #f3efe7;
+  --color-canvas-2: #e8e1d4;
+  --color-card: #fbf8f2;
+  --color-ink: #16150f;
+  --color-ink-soft: #57524a;
+  --color-deep: #10241f;
+  --color-deep-2: #183630;
+  --color-accent: #d9502b;
+  --color-accent-2: #e8b33a;
+  --color-accent-3: #2f6b58;
+
+  --font-display: var(--font-display-src), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-serif-src), ui-serif, Georgia, serif;
+  --font-sans: var(--font-sans-src), ui-sans-serif, system-ui, sans-serif;
+
+  --ease-spring: cubic-bezier(0.32, 0.72, 0, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-curtain: cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+:root {
+  color-scheme: light;
+  --font-sans-src: var(--f-geist);
+  --font-serif-src: var(--f-instrument);
+  --font-display-src: var(--f-bricolage);
+}
+
+/* Font pairings (see app/fonts.ts). */
+html.fonts-editorial { --font-display-src: var(--f-bricolage); }
+html.fonts-modern { --font-display-src: var(--f-jakarta); }
+html.fonts-classic { --font-display-src: var(--f-fraunces); }
+html.fonts-tech { --font-display-src: var(--f-space); }
+
+/* Palettes (names must match lib/themes.ts). */
+html[data-theme="clinic"] {
+  --color-canvas: #f2f6f4; --color-canvas-2: #e1ebe7; --color-card: #fbfdfc; --color-ink: #0f1f1d; --color-ink-soft: #4d5f5b;
+  --color-deep: #0d3b3a; --color-deep-2: #145150; --color-accent: #d9604a; --color-accent-2: #f2c14e; --color-accent-3: #3a8f7d;
+}
+html[data-theme="signal"] {
+  --color-canvas: #f4f4f1; --color-canvas-2: #e6e7e2; --color-card: #fcfcfa; --color-ink: #0f1218; --color-ink-soft: #50555f;
+  --color-deep: #0c1322; --color-deep-2: #18233a; --color-accent: #3b6cf6; --color-accent-2: #c6f15a; --color-accent-3: #ff7a59;
+}
+html[data-theme="stone"] {
+  --color-canvas: #eeebe5; --color-canvas-2: #ddd8ce; --color-card: #f8f6f2; --color-ink: #1b1b19; --color-ink-soft: #5a5750;
+  --color-deep: #23262b; --color-deep-2: #30343b; --color-accent: #9a6b36; --color-accent-2: #d9c39f; --color-accent-3: #55634f;
+}
+html[data-theme="harbor"] {
+  --color-canvas: #f1efe9; --color-canvas-2: #e2ded3; --color-card: #faf9f5; --color-ink: #0f1620; --color-ink-soft: #4f5866;
+  --color-deep: #0f2a44; --color-deep-2: #1a3a5a; --color-accent: #bf4e35; --color-accent-2: #e1ad45; --color-accent-3: #3b6e8f;
+}
+html[data-theme="pangea"] {
+  --color-canvas: #f4f7fb; --color-canvas-2: #e6eef7; --color-card: #ffffff; --color-ink: #1a2535; --color-ink-soft: #5a7290;
+  --color-deep: #1e3a5f; --color-deep-2: #284a73; --color-accent: #1f8f88; --color-accent-2: #f5a623; --color-accent-3: #3dbdb5;
+}
+html[data-theme="bloom"] {
+  --color-canvas: #fbf5ea; --color-canvas-2: #f1e6d2; --color-card: #fffbf3; --color-ink: #1c1b2e; --color-ink-soft: #57546b;
+  --color-deep: #25305e; --color-deep-2: #323f75; --color-accent: #e5532f; --color-accent-2: #ffc23d; --color-accent-3: #3a9e77;
+}
+html[data-theme="noir"] {
+  --color-canvas: #f0ebe3; --color-canvas-2: #e0d8cc; --color-card: #f9f6f1; --color-ink: #121110; --color-ink-soft: #5b5650;
+  --color-deep: #151311; --color-deep-2: #24211e; --color-accent: #9c5a32; --color-accent-2: #d4b16a; --color-accent-3: #6a6f5c;
+}
+html[data-theme="market"] {
+  --color-canvas: #fff7ec; --color-canvas-2: #f6e7d3; --color-card: #fffcf6; --color-ink: #1d140e; --color-ink-soft: #66574b;
+  --color-deep: #3a1f14; --color-deep-2: #4d2a1c; --color-accent: #d9481f; --color-accent-2: #f2a516; --color-accent-3: #2c9a8f;
+}
+html[data-theme="route"] {
+  --color-canvas: #eceeea; --color-canvas-2: #dadfd8; --color-card: #f7f8f5; --color-ink: #131714; --color-ink-soft: #525a54;
+  --color-deep: #14231c; --color-deep-2: #1e3329; --color-accent: #e35a1f; --color-accent-2: #e8d44d; --color-accent-3: #3c7d64;
+}
+
+html {
+  background: var(--color-canvas);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: var(--font-sans);
+}
+
+/* Film grain over everything, very light. Delete the block for a flat look. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 60;
+  opacity: 0.06;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+::selection {
+  background: var(--color-accent-2);
+  color: var(--color-ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  padding: 0.3rem 0.75rem;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/*
+ * Preloader guards.
+ * 1. Intro already played in this tab (inline script in layout sets data-intro): never paint it.
+ * 2. JS failed or is slow: it hides itself after 6 seconds so the page is never stuck behind it.
+ */
+html[data-intro="done"] .ct-preloader {
+  display: none;
+}
+.ct-preloader {
+  animation: ct-pre-fallback 0.01s 6s forwards;
+}
+@keyframes ct-pre-fallback {
+  to {
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
+/* Print and "Save as PDF" (/report): only the document, on white, no cut rows. */
+@media print {
+  [data-noprint], .ct-preloader { display: none !important; }
+  html, body { background: #fff !important; }
+  #main > * > div { padding-top: 0 !important; }
+  /* Browsers drop backgrounds when printing by default: white text on bg-deep would vanish, so keep colours exact. */
+  [data-doc] { background: #fff !important; box-shadow: none !important; padding: 0 !important; border-radius: 0 !important; --tw-ring-shadow: 0 0 #0000 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  [data-doc] tr, [data-doc] li, [data-doc] .rounded-2xl { break-inside: avoid; }
+}
