@@ -23,6 +23,7 @@ export default function Home() {
       <Steps steps={home.steps} />
       <Founder
         name="Andres Gutierrez"
+        photo="/photos/founder.jpg"
         title="Founder · Pangea Connects Pty Ltd"
         badge="5+ yrs Settlement experience"
         quote="A free digital platform for migrants, refugees and international students settling in Australia."
